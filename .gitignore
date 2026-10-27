@@ -16,3 +16,6 @@ venv/
 # Datos (se descargan con kagglehub)
 data/
 *.csv
+
+# Settings de vs code
+.vscode/
