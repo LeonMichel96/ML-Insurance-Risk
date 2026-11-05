@@ -4,8 +4,9 @@ import pandas as pd
 import requests
 import json
 from utils.read_parquet import load_parquet
+import os
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/predict")
 
 # Carga de datos de test
 test_df = load_parquet()
