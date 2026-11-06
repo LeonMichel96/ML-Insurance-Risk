@@ -1,0 +1,26 @@
+# Control de versiones
+.git
+.gitignore
+
+# Python
+**/__pycache__
+**/*.pyc
+.python-version
+
+# Secretos
+.env
+
+# Desarrollo (no se usan en los contenedores)
+notebooks/
+**/.ipynb_checkpoints
+.vscode/
+external_info/
+data/
+*.csv
+
+# Docker
+docker-compose.yml
+**/Dockerfile
+
+# macOS
+**/.DS_Store
