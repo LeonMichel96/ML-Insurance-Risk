@@ -37,11 +37,13 @@ y = policy['is_claim']
 st.subheader("Predicción de riesgo")
 payload = json.loads(policy.drop("is_claim").to_json())
 try:
-    response = requests.post(url=API_URL, json=payload, timeout=10)
+    response = requests.post(url=API_URL, json=payload, timeout=80)
 except requests.exceptions.ConnectionError:
     st.error("No se pudo conectar con la API. ¿Está corriendo uvicorn?")
     st.stop()
-
+except requests.exceptions.Timeout:
+    st.error("Error de time out (puede ser que la api este despertando, intenta de nuevo)")
+    st.stop()
 if response.status_code != 200:
     st.error(f"Error de la API ({response.status_code}): {response.text}")
     st.stop()
